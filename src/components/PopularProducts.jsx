@@ -1,0 +1,125 @@
+import { Link } from "react-router-dom";
+import popular1 from "../assets/popular/1.png";
+import popular2 from "../assets/popular/2.png";
+import popular3 from "../assets/popular/3.png";
+import popular4 from "../assets/popular/4.png";
+import popular5 from "../assets/popular/5.png";
+import popular6 from "../assets/popular/6.png";
+import pop_bg1 from "../assets/popular/popular-bg1.png";
+import pop_bg2 from "../assets/popular/popular-bg2.png";
+
+import { FaEye } from "react-icons/fa";
+import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { VscCoffee } from "react-icons/vsc";
+
+const products = [
+  {
+    id: 1,
+    name: "Americano Coffee",
+    chef: "Mr. Matin Paul",
+    price: "$5.99",
+    image: popular1, // Replace with actual paths
+  },
+  {
+    id: 2,
+    name: "Black Coffee",
+    chef: "Mr. Nibra Sweeden",
+    price: "$6.49",
+    image: popular2,
+  },
+  {
+    id: 3,
+    name: "Expresso Coffee",
+    chef: "Mrs. Morisha",
+    price: "$6.99",
+    image: popular3,
+  },
+  {
+    id: 4,
+    name: "Cappucino Coffee",
+    chef: "Mr. Moruti",
+    price: "$7.49",
+    image: popular4,
+  },
+  {
+    id: 5,
+    name: "Mocchiato",
+    chef: "Mr. Moruti",
+    price: "$7.49",
+    image: popular5,
+  },
+  {
+    id: 6,
+    name: "Decaf Coffee",
+    chef: "Mr. Moruti",
+    price: "$7.49",
+    image: popular6,
+  },
+];
+
+const PopularProducts = () => {
+  return (
+    <section
+      className="py-20 bg-auto bg-no-repeat bg-top-left text-center "
+      style={{
+        backgroundImage: `url('${pop_bg1}'),url('${pop_bg2}')`,
+        backgroundPosition: "top left, center right",
+        backgroundSize: "auto auto",
+      }}
+    >
+      <p>--- Sip & Savor ---</p>
+      <h2 className="text-4xl font-bold mb-4">Our Popular Products</h2>
+
+      <Link
+        to="/add-coffee"
+        className="btn mb-10 bg-[#E3B577]  border-2 text-[#FFFFFF] border-[#331A15]"
+      >
+        Add Coffee <VscCoffee className="text-black font-bold text-lg" />
+      </Link>
+
+      <div className="grid grid-cols-1 md:grid-cols-2  gap-8 max-w-6xl mx-auto px-4">
+        {products.map((item) => (
+          <div
+            key={item.id}
+            className="flex items-center  bg-[#ECEAE3]/50 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+          >
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-46 h-60 p-1 object-cover m-7"
+            />
+
+            {/* <==Details==> */}
+            <div className="p-4 text-left text-lg">
+              <h3 className="">
+                Name: <span className="text-gray-500">{item.name}</span>
+              </h3>
+              <p>
+                Chef: <span className="text-gray-500">{item.chef}</span>
+              </p>
+              <p className="">
+                Price: <span className="text-gray-500">{item.price}</span>
+              </p>
+            </div>
+
+            {/* <==Icons==> */}
+            <div className="flex flex-col gap-4 text-white">
+              <button className="bg-[#D2B48C] p-2.5 rounded-lg hover:text-gray-400">
+                <FaEye />
+              </button>
+              <button className="bg-[#3C393B] p-2.5 rounded-lg hover:text-gray-400">
+                <MdEdit />
+              </button>
+              <button className="bg-[#EA4744] p-2.5 rounded-lg hover:text-gray-400">
+                <MdDelete />
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default PopularProducts;
