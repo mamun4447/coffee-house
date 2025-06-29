@@ -1,71 +1,97 @@
 import { Link } from "react-router-dom";
-import popular1 from "../assets/popular/1.png";
-import popular2 from "../assets/popular/2.png";
-import popular3 from "../assets/popular/3.png";
-import popular4 from "../assets/popular/4.png";
-import popular5 from "../assets/popular/5.png";
-import popular6 from "../assets/popular/6.png";
-import pop_bg1 from "../assets/popular/popular-bg1.png";
-import pop_bg2 from "../assets/popular/popular-bg2.png";
-
+import pop_bg from "../assets/popular/popularBg.png";
 import { FaEye } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { VscCoffee } from "react-icons/vsc";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import { filter } from "./../../node_modules/rxjs/dist/esm5/internal/operators/filter";
 
-const products = [
-  {
-    id: 1,
-    name: "Americano Coffee",
-    chef: "Mr. Matin Paul",
-    price: "$5.99",
-    image: popular1, // Replace with actual paths
-  },
-  {
-    id: 2,
-    name: "Black Coffee",
-    chef: "Mr. Nibra Sweeden",
-    price: "$6.49",
-    image: popular2,
-  },
-  {
-    id: 3,
-    name: "Expresso Coffee",
-    chef: "Mrs. Morisha",
-    price: "$6.99",
-    image: popular3,
-  },
-  {
-    id: 4,
-    name: "Cappucino Coffee",
-    chef: "Mr. Moruti",
-    price: "$7.49",
-    image: popular4,
-  },
-  {
-    id: 5,
-    name: "Mocchiato",
-    chef: "Mr. Moruti",
-    price: "$7.49",
-    image: popular5,
-  },
-  {
-    id: 6,
-    name: "Decaf Coffee",
-    chef: "Mr. Moruti",
-    price: "$7.49",
-    image: popular6,
-  },
-];
+// const products = [
+//   {
+//     id: 1,
+//     name: "Americano Coffee",
+//     chef: "Mr. Matin Paul",
+//     price: "$5.99",
+//     image: popular1, // Replace with actual paths
+//   },
+//   {
+//     id: 2,
+//     name: "Black Coffee",
+//     chef: "Mr. Nibra Sweeden",
+//     price: "$6.49",
+//     image: popular2,
+//   },
+//   {
+//     id: 3,
+//     name: "Expresso Coffee",
+//     chef: "Mrs. Morisha",
+//     price: "$6.99",
+//     image: popular3,
+//   },
+//   {
+//     id: 4,
+//     name: "Cappucino Coffee",
+//     chef: "Mr. Moruti",
+//     price: "$7.49",
+//     image: popular4,
+//   },
+//   {
+//     id: 5,
+//     name: "Mocchiato",
+//     chef: "Mr. Moruti",
+//     price: "$7.49",
+//     image: popular5,
+//   },
+//   {
+//     id: 6,
+//     name: "Decaf Coffee",
+//     chef: "Mr. Moruti",
+//     price: "$7.49",
+//     image: popular6,
+//   },
+// ];
 
-const PopularProducts = () => {
+const PopularProducts = ({ Coffee }) => {
+  const [allCoffee, setAllCoffee] = useState(Coffee);
+  // console.log(allCoffee);
+  const handleDelete = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/coffee/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            // console.log(result);
+            if (result.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your coffee has been deleted.",
+                icon: "success",
+              });
+              const remaining = allCoffee.filter((coffee) => coffee._id !== id);
+              setAllCoffee(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <section
-      className="py-20 bg-auto bg-no-repeat bg-top-left text-center "
+      className="py-20 w-full h-screen bg-cover overflow-auto text-center "
       style={{
-        backgroundImage: `url('${pop_bg1}'),url('${pop_bg2}')`,
-        backgroundPosition: "top left, center right",
-        backgroundSize: "auto auto",
+        backgroundImage: `url('${pop_bg}')`,
       }}
     >
       <p>--- Sip & Savor ---</p>
@@ -79,27 +105,32 @@ const PopularProducts = () => {
       </Link>
 
       <div className="grid grid-cols-1 md:grid-cols-2  gap-8 max-w-6xl mx-auto px-4">
-        {products.map((item) => (
+        {allCoffee.map((coffee) => (
           <div
-            key={item.id}
+            key={coffee._id}
             className="flex items-center  bg-[#ECEAE3]/50 rounded-lg shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300"
           >
             <img
-              src={item.image}
-              alt={item.name}
+              src={coffee?.photo}
+              alt={coffee?.name}
               className="w-46 h-60 p-1 object-cover m-7"
             />
 
             {/* <==Details==> */}
             <div className="p-4 text-left text-lg">
               <h3 className="">
-                Name: <span className="text-gray-500">{item.name}</span>
+                Name: <span className="text-gray-500">{coffee?.name}</span>
               </h3>
               <p>
-                Chef: <span className="text-gray-500">{item.chef}</span>
+                Chef: <span className="text-gray-500">{coffee?.chef}</span>
               </p>
               <p className="">
-                Price: <span className="text-gray-500">{item.price}</span>
+                Status:{" "}
+                {coffee?.status ? (
+                  <span className="text-green-500">Available</span>
+                ) : (
+                  <span className="text-red-500">Not Available</span>
+                )}
               </p>
             </div>
 
@@ -108,10 +139,16 @@ const PopularProducts = () => {
               <button className="bg-[#D2B48C] p-2.5 rounded-lg hover:text-gray-400">
                 <FaEye />
               </button>
-              <button className="bg-[#3C393B] p-2.5 rounded-lg hover:text-gray-400">
+              <Link
+                to={`/update/${coffee?._id}`}
+                className="bg-[#3C393B] p-2.5 rounded-lg hover:text-gray-400"
+              >
                 <MdEdit />
-              </button>
-              <button className="bg-[#EA4744] p-2.5 rounded-lg hover:text-gray-400">
+              </Link>
+              <button
+                onClick={(id) => handleDelete(coffee?._id)}
+                className="bg-[#EA4744] p-2.5 rounded-lg hover:text-gray-400"
+              >
                 <MdDelete />
               </button>
             </div>
