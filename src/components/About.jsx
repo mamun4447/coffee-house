@@ -45,7 +45,7 @@ const About = () => {
             className="w-17 h-17 object-cover"
           />
           <div className="md:text-left my-4 text-center">
-            <h3 className="text-xl font-bold">{item.title}</h3>
+            <h3 className="text-xl font-bold merienda">{item.title}</h3>
             <p className="">{item.details}</p>
           </div>
         </div>

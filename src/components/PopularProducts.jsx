@@ -95,11 +95,11 @@ const PopularProducts = ({ Coffee }) => {
       }}
     >
       <p>--- Sip & Savor ---</p>
-      <h2 className="text-4xl font-bold mb-4">Our Popular Products</h2>
+      <h2 className="text-4xl font-bold mb-4 merienda">Our Popular Products</h2>
 
       <Link
         to="/add-coffee"
-        className="btn mb-10 bg-[#E3B577]  border-2 text-[#FFFFFF] border-[#331A15]"
+        className="btn mb-10 bg-[#E3B577]  border-2 text-[#FFFFFF] border-[#331A15] merienda"
       >
         Add Coffee <VscCoffee className="text-black font-bold text-lg" />
       </Link>

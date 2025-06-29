@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <div className="text-center">
       <Link
         to="/"
-        className="flex items-center max-w-[1320px] mx-auto pt-5  gap-2 text-lg"
+        className="flex items-center max-w-[1320px] mx-auto pt-5  gap-2 text-lg merienda"
       >
         <FaArrowLeft /> Back to Home
       </Link>

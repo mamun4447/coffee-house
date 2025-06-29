@@ -9,7 +9,7 @@ const NavBar = () => {
       style={{ backgroundImage: `url('${navImg}')` }} // Replace with actual path
     >
       <img className="max-w-12" src={logo} alt="" />
-      <Link to="/" className="text-2xl  font-bold tracking-wide">
+      <Link to="/" className="text-2xl  font-bold merienda tracking-wide">
         Espresso Emporium
       </Link>
     </nav>

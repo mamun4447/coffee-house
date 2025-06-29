@@ -6,3 +6,9 @@
 .text {
   color: #331a15;
 }
+.merienda {
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}

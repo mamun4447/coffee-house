@@ -42,7 +42,7 @@ const UpdateCoffee = () => {
       .then((res) => res.json())
       .then((result) => {
         // console.log(result);
-        if (result.acknowledged) {
+        if (result.modifiedCount > 0) {
           toast.success(`${name} Coffee Updated Successfull!`);
           formRef.current.reset();
           navigate("/");
@@ -57,14 +57,14 @@ const UpdateCoffee = () => {
       <div className="absolute bg-black/10 w-full h-full"></div>
       <Link
         to="/"
-        className="flex items-center max-w-[1320px] mx-auto pt-5 relative gap-2 text-lg"
+        className="flex items-center max-w-[1320px] mx-auto pt-5 relative gap-2 text-lg merienda"
       >
         <FaArrowLeft /> Back to Home
       </Link>
       <div className="max-w-[1320px] px-10 mx-auto flex flex-col gap-8 mt-10">
         {/* Title */}
         <div className="relative text-center max-w-[932px] px-10 mx-auto">
-          <h1 className="text-2xl my-2">Add New Coffee</h1>
+          <h1 className="text-2xl my-2 merienda font-bold">Update Coffee</h1>
           <p>
             It is a long established fact that a reader will be distraceted by
             the readable content of a page when looking at its layout. The point
@@ -178,7 +178,7 @@ const UpdateCoffee = () => {
             <label htmlFor="status">Available?</label>
           </div> */}
           <input
-            className="btn col-span-2 mt-2 text-[#331A15] hover:shadow-2xl bg-[#D2B48C] border border-[#331A15] "
+            className="btn col-span-2 mt-2 text-[#331A15] hover:shadow-2xl bg-[#D2B48C] border border-[#331A15] merienda"
             type="submit"
             value="Add Coffe"
           />

@@ -7,7 +7,7 @@ const Copyright = () => {
       style={{ backgroundImage: `url('${footerBg}')` }}
     >
       <div className="bg-black/60  w-full h-full absolute top-0 left-0 z-0"></div>
-      <span className="relative text-white z-10">
+      <span className="relative text-white z-10 merienda">
         {" "}
         © {new Date().getFullYear()} Espresso Emporium. All rights reserved.
       </span>

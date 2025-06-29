@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="bg-black/60 w-full h-full absolute top-0 left-0 z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4  py-20">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight poppins-thin">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight merienda">
           Would you like a Cup of Delicious Coffee?
         </h1>
         <p className="text-lg md:text-xl max-w-2xl mb-8">
@@ -19,7 +19,7 @@ const Hero = () => {
         </p>
         <Link
           to="/"
-          className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-2xl font-semibold transition"
+          className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-2xl font-semibold transition merienda"
         >
           Learn More
         </Link>

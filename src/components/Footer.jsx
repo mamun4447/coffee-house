@@ -13,7 +13,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { MdLocationCity } from "react-icons/md";
-import Copyright from "./Copyright";
 
 const Footer = () => {
   return (
@@ -28,7 +27,7 @@ const Footer = () => {
       <div className="flex w-[90%] mx-auto px-10">
         {/* <==Social Media==> */}
         <section>
-          <h2 className="text-3xl my-2">Espresso Emporium</h2>
+          <h2 className="text-3xl my-2 merienda">Espresso Emporium</h2>
           <p className="my-2">
             Always ready to be your friend. Come & Contact with us to share your
             memorable moments, to share with your best companion.
@@ -40,7 +39,7 @@ const Footer = () => {
             <FaInstagram />
             <FaLinkedin />
           </div>
-          <h3 className="text-3xl my-2">Get In Touch</h3>
+          <h3 className="text-3xl my-2 merienda">Get In Touch</h3>
           <div className="flex items-center gap-2 my-2">
             <FaPhoneAlt /> +8801789997959
           </div>
@@ -53,7 +52,7 @@ const Footer = () => {
         </section>
         {/* <==Email Form==> */}
         <section className="w-full pl-20">
-          <h2 className="text-3xl mb-2">Contact With Us</h2>
+          <h2 className="text-3xl mb-2 merienda">Contact With Us</h2>
           <input
             className="bg-white w-full border-gray-500 rounded-lg p-3"
             type="text"

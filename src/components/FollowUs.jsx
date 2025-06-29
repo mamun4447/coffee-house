@@ -12,7 +12,7 @@ const FollowUs = () => {
   return (
     <section className="text-center">
       <p>--- Follow Us ---</p>
-      <h2 className="text-4xl font-bold mb-4">Follow on Instagram</h2>
+      <h2 className="text-4xl font-bold mb-4 merienda">Follow on Instagram</h2>
       <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl mx-auto px-4 my-10">
         <Link to="/">
           <img src={follow1} alt="" />
