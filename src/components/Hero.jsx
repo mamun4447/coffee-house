@@ -35,6 +35,12 @@ const Hero = () => {
             Log In
           </Link>
         )}
+        <Link
+          to={"/users"}
+          className="inline-block ms-2 px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-lg font-semibold transition merienda"
+        >
+          Users Information
+        </Link>
       </div>
     </section>
   );
