@@ -74,7 +74,7 @@ const Footer = () => {
             placeholder="Message"
           />
           <input
-            className="btn text-lg  text-[#331A15] border-[#331A15] rounded-full border-2 hover:bg-[#331A15] hover:text-white"
+            className="btn text-lg  text-[#331A15] border-[#331A15] rounded-full border-2 hover:bg-[#331A15] hover:text-white merienda"
             type="submit"
             value="Send Email"
             id=""

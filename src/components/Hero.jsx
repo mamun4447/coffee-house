@@ -18,10 +18,10 @@ const Hero = () => {
           coffee in town at Espresso Emporium.
         </p>
         <Link
-          to="/"
-          className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-2xl font-semibold transition merienda"
+          to="/login"
+          className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-lg font-semibold transition merienda"
         >
-          Learn More
+          Log In
         </Link>
       </div>
     </section>
