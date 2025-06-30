@@ -6,52 +6,6 @@ import { MdDelete } from "react-icons/md";
 import { VscCoffee } from "react-icons/vsc";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import { filter } from "./../../node_modules/rxjs/dist/esm5/internal/operators/filter";
-
-// const products = [
-//   {
-//     id: 1,
-//     name: "Americano Coffee",
-//     chef: "Mr. Matin Paul",
-//     price: "$5.99",
-//     image: popular1, // Replace with actual paths
-//   },
-//   {
-//     id: 2,
-//     name: "Black Coffee",
-//     chef: "Mr. Nibra Sweeden",
-//     price: "$6.49",
-//     image: popular2,
-//   },
-//   {
-//     id: 3,
-//     name: "Expresso Coffee",
-//     chef: "Mrs. Morisha",
-//     price: "$6.99",
-//     image: popular3,
-//   },
-//   {
-//     id: 4,
-//     name: "Cappucino Coffee",
-//     chef: "Mr. Moruti",
-//     price: "$7.49",
-//     image: popular4,
-//   },
-//   {
-//     id: 5,
-//     name: "Mocchiato",
-//     chef: "Mr. Moruti",
-//     price: "$7.49",
-//     image: popular5,
-//   },
-//   {
-//     id: 6,
-//     name: "Decaf Coffee",
-//     chef: "Mr. Moruti",
-//     price: "$7.49",
-//     image: popular6,
-//   },
-// ];
 
 const PopularProducts = ({ Coffee }) => {
   const [allCoffee, setAllCoffee] = useState(Coffee);

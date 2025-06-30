@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import heroImg from "../assets/hero.png";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Hero = () => {
+  const { user, logOut } = useContext(AuthContext);
   return (
     <section
       className="bg-cover bg-center min-h-screen flex items-center text-white relative"
@@ -17,12 +20,21 @@ const Hero = () => {
           It’s coffee time — Sip & Savor — Relaxation in every sip! Get the best
           coffee in town at Espresso Emporium.
         </p>
-        <Link
-          to="/login"
-          className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-lg font-semibold transition merienda"
-        >
-          Log In
-        </Link>
+        {user ? (
+          <button
+            onClick={logOut}
+            className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-lg font-semibold transition merienda"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="inline-block px-6 py-3 bg-[#C49A6C] hover:bg-[#a67e51] text-white rounded-0 hover:rounded-lg font-semibold transition merienda"
+          >
+            Log In
+          </Link>
+        )}
       </div>
     </section>
   );
