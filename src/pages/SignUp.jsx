@@ -29,7 +29,7 @@ const SignUp = () => {
     userSignUp(email, password)
       .then((res) => {
         // console.log(res);
-        fetch("http://localhost:5000/user", {
+        fetch("https://coffee-house-black-three.vercel.app/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

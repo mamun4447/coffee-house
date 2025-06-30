@@ -31,7 +31,7 @@ const AddCoffee = () => {
     };
     // console.log(coffe);
 
-    fetch("http://localhost:5000/coffee", {
+    fetch("https://coffee-house-black-three.vercel.app/coffee", {
       method: "POST",
       headers: {
         "content-type": "application/json",

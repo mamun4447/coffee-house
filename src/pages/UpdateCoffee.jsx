@@ -32,13 +32,16 @@ const UpdateCoffee = () => {
       status: true,
     };
     // console.log(coffe);
-    fetch(`http://localhost:5000/coffee/${loadedCoffee?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(coffe),
-    })
+    fetch(
+      `https://coffee-house-black-three.vercel.app/coffee/${loadedCoffee?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(coffe),
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         // console.log(result);
